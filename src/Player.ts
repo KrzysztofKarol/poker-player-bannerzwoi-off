@@ -7,8 +7,7 @@ export class Player {
     if (hands.length < 2) {
       return 10000;
     }
-
-    if (startHandScore > 0.5) {
+    if (startHandScore > 0.65) {
       return 10000;
     }
     return 0;
@@ -20,7 +19,7 @@ export class Player {
 
   public getOwnHand(gameState: IGameState): ICard[] {
     const firstPlayerWithCards = gameState.players.find((player) => player.hole_cards && player.hole_cards.length > 0);
-    return firstPlayerWithCards ? firstPlayerWithCards.hole_cards: []
+    return firstPlayerWithCards && firstPlayerWithCards.hole_cards || []
   }
 
   public getStartingHandScore(cards: ICard[]) {
