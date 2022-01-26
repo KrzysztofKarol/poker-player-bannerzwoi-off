@@ -8,7 +8,7 @@ export class Player {
       console.log("❌ INVALID HAND????");
       return 10000;
     }
-    if (startHandScore > 0.8) {
+    if (startHandScore > 0.6) {
       return 10000;
     }
     return 0;
