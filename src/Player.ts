@@ -2,13 +2,16 @@ export class Player {
   public async betRequest(gameState: IGameState): Promise<number> {
     const hands = this.getOwnHand(gameState);
     const startHandScore = this.getStartingHandScore(hands);
-    console.log({startHandScore, hands});
+
+    const MIN_SCORE = 0.6;
+
+    console.log({startHandScore, hands, MIN_SCORE});
     // Go all in on invalid card amount
     if (hands.length < 2) {
       console.log("❌ INVALID HAND????");
       return 10000;
     }
-    if (startHandScore > 0.6) {
+    if (startHandScore > MIN_SCORE) {
       return 10000;
     }
     return 0;
