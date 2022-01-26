@@ -24,7 +24,7 @@ app.post('/', (req, res) => {
             })
             .catch((error) => {
                 console.log("❌", {error})
-                res.status(200).send("999");
+                res.status(200).send("999999");
             });
 
     } else if (req.body.action === 'showdown') {
