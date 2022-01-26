@@ -1,11 +1,23 @@
 export class Player {
   public async betRequest(gameState: IGameState): Promise<number> {
-    return 10000;
+    const startHandScore = this.getStartingHandScore(this.getOwnHand(gameState));
+    if (startHandScore > 0.5) {
+      return 10000;
+    }
+    return 0;
   }
 
   public showdown(gameState: IGameState): void {
 
   }
+
+  public getOwnHand(gameState: IGameState): ICard[] {
+    const firstPlayerWithCards = gameState.players.find((player) => player.hole_cards.length > 0);
+    return firstPlayerWithCards ? firstPlayerWithCards.hole_cards: []
+  }
+
+
+
 
   public getStartingHandScore(cards: ICard[]) {
     if (cards.length < 2) {
