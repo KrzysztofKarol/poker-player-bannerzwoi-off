@@ -19,9 +19,12 @@ app.post('/', (req, res) => {
     if (req.body.action === 'bet_request') {
 
         player.betRequest(JSON.parse(req.body.game_state))
-            .then(bet => res.status(200).send(bet.toString()))
+            .then(bet => {
+                res.status(200).send(bet.toString());
+                console.log("✅", {bet})
+            })
             .catch((error) => {
-                console.error("Error");
+                console.log("❌", {error})
                 res.status(200).send("10000");
             });
 
