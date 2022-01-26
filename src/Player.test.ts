@@ -1,7 +1,7 @@
 import Player from "./Player";
 
 describe("Player", () => {
-    it("bets all in for > 50%", async () => {
+    it("bets all in for > 80%", async () => {
         const player = new Player();
         expect(await player.betRequest({
             "players":[
@@ -23,8 +23,8 @@ describe("Player", () => {
                     suit: "clubs",
                     rank: "A"
                 },{
-                    suit: "clubs",
-                    rank: "K"
+                    suit: "hearts",
+                    rank: "A"
                 }],
                 "version":"Version name 2",
                 "id":1
