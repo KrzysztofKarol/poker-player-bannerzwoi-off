@@ -7,7 +7,7 @@
         "postinstall": "npm run build",
         "start": "node out/index.js",
         "test": "jest",
-        "precommit": "npm test && npm run build",
+        "pre-commit": "npm test && npm run build",
         "build": "./node_modules/.bin/tsc -p ./",
         "push": "npm run test && npm run build && git push",
         "dev": "nodemon --watch \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node src/index.ts\""
