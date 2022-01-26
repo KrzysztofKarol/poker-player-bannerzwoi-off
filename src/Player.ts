@@ -2,6 +2,7 @@ export class Player {
   public async betRequest(gameState: IGameState): Promise<number> {
     const hands = this.getOwnHand(gameState);
     const startHandScore = this.getStartingHandScore(hands);
+    console.log({startHandScore, hands});
     // Go all in on invalid card amount
     if (hands.length < 2) {
       return 10000;
