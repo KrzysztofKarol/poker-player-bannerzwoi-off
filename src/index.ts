@@ -1,7 +1,8 @@
-/// <reference path='../typings/index.d.ts'/>
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { Player } from './Player';
+
+
 
 const VERSION = "Default TypeScript folding player";
 
@@ -16,7 +17,7 @@ app.get('/', ({}, res) => res.send(200, 'OK'));
 
 app.post('/', (req, res) => {
     if (req.body.action === 'bet_request') {
-        
+
         player.betRequest(JSON.parse(req.body.game_state))
             .then(bet => res.status(200).send(bet.toString()))
             .catch((error) => console.error("Error"));
@@ -31,7 +32,7 @@ app.post('/', (req, res) => {
     }
 });
 
-const port = parseInt(process.env['PORT'] || 1337);
+const port = parseInt(process.env['PORT'] || "1337");
 const host = "0.0.0.0";
 app.listen(port, host);
 console.log('Listening at http://' + host + ':' + port);
