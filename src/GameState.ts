@@ -79,7 +79,6 @@ export const getOwnState = (gameState: IGameState): IPlayer => {
 
 export const getCheckAmount = (gameState: IGameState): number => {
   const playerState = getOwnState(gameState);
-  console.log("🤨 okayish hand - lets check");
   return getCurrentHighestBet(gameState) - playerState.bet;
 };
 

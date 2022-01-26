@@ -1,6 +1,6 @@
 import { getOurPosition } from "../getPosition";
 import { isSomeoneAllIn } from "../isSomeoneAllIn";
-import { IGameState } from "../GameState";
+import { getCheckAmount, getOwnState, IGameState } from "../GameState";
 
 /**
  * Returns the minimal hand score to play depending on the current money and bigBlind
@@ -10,22 +10,15 @@ export const getMinScore = (stack: number, gameState: IGameState): number => {
   const stackInBb = Math.round(stack / bigBlind);
 
   try {
-    const someoneAlreadyAllIn = isSomeoneAllIn(gameState);
+    const weNeedToGoAllIn = getCheckAmount(gameState) >= getOwnState(gameState).stack;
 
-    console.log({
-      name: "PUSH_OR_FOLD",
-      someoneAlreadyAllIn,
-      stackInBb,
-    });
-    console.log(gameState.players);
-  } catch (error) {
-    console.log({ error })
-  }
-
-  // ENABLE IF NEEDED!
-  // if (someoneAlreadyAllIn) {
-  //  return getMinScoreForCallSomeonesAllIn(stackInBb);
-  //}
+    // ENABLE IF NEEDED!
+    if (weNeedToGoAllIn) {
+      console.log("💰💰💰💰 we need to go all in to check the amount ");
+      console.log(gameState.players);
+      //return getMinScoreForCallSomeonesAllIn(stackInBb);
+    }
+  } catch(e) {console.log("💣  ERRRROR", e)}
 
   if (stackInBb > 100) {
     return 0.8;
@@ -56,7 +49,7 @@ export const getMinScore = (stack: number, gameState: IGameState): number => {
 
 const getMinScoreForCallSomeonesAllIn = (stackInBb: number): number => {
   if (stackInBb > 50) {
-    return 0.8;
+    return 0.85;
   }
 
   if (stackInBb > 20) {

@@ -7,4 +7,7 @@ export const getRelativeStack = (gameState: IGameState) => {
 
     const stacks = gameState.players.map(player => player.stack);
     
+    
+
 }
+
