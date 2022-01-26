@@ -2,7 +2,8 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { Player } from './Player';
 
-const VERSION = "Default TypeScript folding player";
+// StartHandScore Logic
+const VERSION = "SHS Logic";
 
 const app = express();
 const player = new Player();

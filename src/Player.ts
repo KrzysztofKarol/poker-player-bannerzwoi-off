@@ -2,11 +2,10 @@ export class Player {
   public async betRequest(gameState: IGameState): Promise<number> {
     const hands = this.getOwnHand(gameState);
     const startHandScore = this.getStartingHandScore(hands);
-    console.log({hands, startHandScore})
     if (startHandScore > 0.5) {
       return 10000;
     }
-    return 10000;
+    return 0;
   }
 
   public showdown(gameState: IGameState): void {
