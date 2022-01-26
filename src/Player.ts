@@ -4,7 +4,7 @@ export class Player {
     if (startHandScore > 0.5) {
       return 10000;
     }
-    return 0;
+    return 10000;
   }
 
   public showdown(gameState: IGameState): void {
