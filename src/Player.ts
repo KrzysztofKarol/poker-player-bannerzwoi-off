@@ -6,36 +6,24 @@ export class Player {
     const playerState = this.getOwnState(gameState);
     const hands = playerState.hole_cards || [];
     const startHandScore = this.getStartingHandScore(hands);
+    const minScore = getMinScore(playerState.stack, gameState.big_blind);
 
-    const MIN_SCORE = 0.6;
-
-
-    const stack = playerState.stack;
-    const bb = gameState.big_blind;
-
-    const stackInBb = Math.round(stack / bb);
-
-    const minScore = getMinScore(stackInBb)
-
-    console.log({ startHandScore, hands, bigBlind: gameState.big_blind, smallBlind: gameState.small_blind, MIN_SCORE, minScore });
+    console.log({ startHandScore, hands, bigBlind: gameState.big_blind, smallBlind: gameState.small_blind, minScore });
     console.log(playerState);
     console.log("💰", playerState.stack);
-
-
-
 
     // Go all in on invalid card amount
     if (hands.length < 2) {
       console.log("❌ INVALID HAND????");
       return 10000;
     }
-    if (startHandScore > MIN_SCORE) {
+    if (startHandScore > minScore) {
       return 10000;
     }
     return 0;
   }
 
-  public showdown(gameState: IGameState): void {}
+  public showdown(gameState: IGameState): void { }
 
   public getOwnState(gameState: IGameState): IPlayer {
     const ourName = "Bannerzwoi off";
