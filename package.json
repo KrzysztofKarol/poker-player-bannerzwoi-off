@@ -6,9 +6,9 @@
     "scripts": {
         "postinstall": "npm run build",
         "start": "node out/index.js",
-        "test": "jest; npm run build",
+        "test": "jest && npm run build",
         "build": "./node_modules/.bin/tsc -p ./",
-        "push": "npm run test; npm run push"
+        "push": "npm run test && npm run push"
     },
     "dependencies": {
         "@types/jest": "27.4.0",

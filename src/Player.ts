@@ -16,9 +16,6 @@ export class Player {
     return firstPlayerWithCards ? firstPlayerWithCards.hole_cards: []
   }
 
-
-
-
   public getStartingHandScore(cards: ICard[]) {
     if (cards.length < 2) {
       return 0;
