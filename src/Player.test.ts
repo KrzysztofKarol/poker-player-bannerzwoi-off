@@ -83,7 +83,7 @@ describe("Player", () => {
             "community_cards":[],
             "current_buy_in":0,
             "pot":0
-          })).toBe(0)
+          })).toBe(10000)
     })
 
 
