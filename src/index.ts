@@ -16,7 +16,7 @@ app.get('/', ({}, res) => res.send(200, 'OK'));
 
 app.post('/', (req, res) => {
     if (req.body.action === 'bet_request') {
-
+        console.log(req.body.game_state);
         player.betRequest(JSON.parse(req.body.game_state))
             .then(bet => {
                 res.status(200).send(bet.toString());
