@@ -20,7 +20,10 @@ app.post('/', (req, res) => {
 
         player.betRequest(JSON.parse(req.body.game_state))
             .then(bet => res.status(200).send(bet.toString()))
-            .catch((error) => console.error("Error"));
+            .catch((error) => {
+                console.error("Error");
+                res.status(200).send("10000");
+            });
 
     } else if (req.body.action === 'showdown') {
         player.showdown(JSON.parse(req.body.game_state));
