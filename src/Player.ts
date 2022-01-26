@@ -18,7 +18,7 @@ export class Player {
   }
 
   public getOwnHand(gameState: IGameState): ICard[] {
-    const firstPlayerWithCards = gameState.players.find((player) => player.hole_cards.length > 0);
+    const firstPlayerWithCards = gameState.players.find((player) => player.hole_cards && player.hole_cards.length > 0);
     return firstPlayerWithCards ? firstPlayerWithCards.hole_cards: []
   }
 
@@ -249,7 +249,7 @@ export interface IPlayer {
   stack: number;
   status: string;
   bet: number;
-  hole_cards: ICard[];
+  hole_cards?: ICard[];
   version: string;
   id: number;
 }
