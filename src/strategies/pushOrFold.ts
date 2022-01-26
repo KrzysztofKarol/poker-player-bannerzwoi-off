@@ -14,10 +14,10 @@ export const getMinScore = (stack: number, gameState: IGameState): number => {
 
     console.log({
       name: "PUSH_OR_FOLD",
-      gameState,
       someoneAlreadyAllIn,
       stackInBb,
     });
+    console.log(gameState.players);
   } catch (error) {
     console.log({ error })
   }
