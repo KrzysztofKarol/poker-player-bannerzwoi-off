@@ -1,6 +1,6 @@
 export class Player {
-  public betRequest(gameState: any, betCallback: (bet: number) => void): void {
-    betCallback(1000);
+  public async betRequest(gameState: any): Promise<number> {
+    return 10000;
   }
 
   public showdown(gameState: any): void {
