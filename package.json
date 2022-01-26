@@ -6,8 +6,9 @@
     "scripts": {
         "postinstall": "npm run build",
         "start": "node out/index.js",
-        "test": "jest",
-        "build": "./node_modules/.bin/typings i && ./node_modules/.bin/tsc -p ./"
+        "test": "jest; npm run build",
+        "build": "./node_modules/.bin/tsc -p ./",
+        "push": "npm run test; npm run push"
     },
     "dependencies": {
         "@types/jest": "27.4.0",
@@ -16,8 +17,7 @@
         "express": "^4.17.2",
         "jest": "27.4.7",
         "ts-jest": "27.1.3",
-        "typescript": "^4.5.4",
-        "typings": "latest"
+        "typescript": "^4.5.4"
     },
     "engines": {
         "node": "17.1.0",
