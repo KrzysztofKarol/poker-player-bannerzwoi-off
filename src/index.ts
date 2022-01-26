@@ -2,8 +2,6 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { Player } from './Player';
 
-
-
 const VERSION = "Default TypeScript folding player";
 
 const app = express();
@@ -25,7 +23,7 @@ app.post('/', (req, res) => {
             })
             .catch((error) => {
                 console.log("❌", {error})
-                res.status(200).send("10000");
+                res.status(200).send("999");
             });
 
     } else if (req.body.action === 'showdown') {
