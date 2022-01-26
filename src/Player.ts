@@ -1,11 +1,13 @@
 export class Player {
   public async betRequest(gameState: IGameState): Promise<number> {
-    const hands = this.getOwnHand(gameState);
+    const playerState = this.getOwnState(gameState);
+    const hands = playerState.hole_cards || [];
     const startHandScore = this.getStartingHandScore(hands);
 
     const MIN_SCORE = 0.6;
 
     console.log({startHandScore, hands, MIN_SCORE});
+    console.log(playerState);
     // Go all in on invalid card amount
     if (hands.length < 2) {
       console.log("❌ INVALID HAND????");
@@ -21,9 +23,18 @@ export class Player {
 
   }
 
+  public getOwnState(gameState: IGameState): IPlayer {
+    const ourName = "Bannerzwoi off";
+    const player = gameState.players.find((player) => player.name === ourName);
+    if (!player) {
+      throw new Error("Player not found");
+    }
+    return player;
+  }
+
   public getOwnHand(gameState: IGameState): ICard[] {
-    const firstPlayerWithCards = gameState.players.find((player) => player.hole_cards && player.hole_cards.length > 0);
-    return firstPlayerWithCards && firstPlayerWithCards.hole_cards || []
+    const ownState = this.getOwnState(gameState);
+    return ownState.hole_cards || []
   }
 
   public getStartingHandScore(cards: ICard[]) {

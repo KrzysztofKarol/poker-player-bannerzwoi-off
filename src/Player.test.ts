@@ -15,7 +15,7 @@ describe("Player", () => {
                 "id":0
               },
               {
-                "name":"Player 2",
+                "name":"Bannerzwoi off",
                 "stack":1000,
                 "status":"active",
                 "bet":0,
@@ -58,7 +58,7 @@ describe("Player", () => {
                 "id":0
               },
               {
-                "name":"Player 2",
+                "name":"Bannerzwoi off",
                 "stack":1000,
                 "status":"active",
                 "bet":0,
