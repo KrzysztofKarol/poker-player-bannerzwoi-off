@@ -12,7 +12,7 @@ const player = new Player();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', ({}, res) => res.send(200, 'OK'));
+app.get('/', ({}, res) => res.send('OK'));
 
 app.post('/', (req, res) => {
     if (req.body.action === 'bet_request') {

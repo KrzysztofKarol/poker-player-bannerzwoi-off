@@ -5,9 +5,10 @@ export class Player {
     console.log({startHandScore, hands});
     // Go all in on invalid card amount
     if (hands.length < 2) {
+      console.log("❌ INVALID HAND????");
       return 10000;
     }
-    if (startHandScore > 0.65) {
+    if (startHandScore > 0.8) {
       return 10000;
     }
     return 0;
