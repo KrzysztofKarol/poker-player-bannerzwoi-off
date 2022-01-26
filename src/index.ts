@@ -2,8 +2,7 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { Player } from './Player';
 
-// BlindBased StartHandScore Logic
-const VERSION = "BB SHS Logic";
+const VERSION = Player.strategyName;
 
 const app = express();
 const player = new Player();

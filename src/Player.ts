@@ -2,6 +2,9 @@ import { getMinScore } from "./getMinScore";
 import { startingHandOds } from "./startingHandOds";
 
 export class Player {
+  // BlindBased StartHandScore Logic
+  static strategyName = "BB SHS Logic";
+
   public async betRequest(gameState: IGameState): Promise<number> {
     const playerState = this.getOwnState(gameState);
     const hands = playerState.hole_cards || [];
